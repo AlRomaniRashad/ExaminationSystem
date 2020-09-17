@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="ExaminationProject.UserControlAssignCourseToInstructor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExaminationProject"
+             xmlns:materialDesign="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <materialDesign:WrapPanel Grid.Row="0" HorizontalAlignment="Center">
+            <materialDesign:WrapPanel Margin="10,10,0,0">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,10,0">Course Name</TextBlock>
+                <materialDesign:ComboBox Name="cmbCourse" MinWidth="100" SelectionChanged="Cmb_SelectionChanged"/>
+            </materialDesign:WrapPanel>
+            <materialDesign:WrapPanel Margin="10,10,0,0">
+                <TextBlock VerticalAlignment="Center" Margin="5,0,10,0">Branch</TextBlock>
+                <materialDesign:ComboBox Name="cmbBranch" MinWidth="100" Margin="0,0,10,0" SelectionChanged="Cmb_SelectionChanged"/>
+            </materialDesign:WrapPanel>
+            <materialDesign:WrapPanel Margin="10,10,0,0">
+                <TextBlock VerticalAlignment="Center" Margin="5,0,20,0">Track</TextBlock>
+                <materialDesign:ComboBox Name="cmbTrack" MinWidth="100" Margin="0,0,10,0" SelectionChanged="Cmb_SelectionChanged"/>
+            </materialDesign:WrapPanel>
+        </materialDesign:WrapPanel>
+
+        <materialDesign:Grid Grid.Row="1" Margin="0,10,0,0">
+            <materialDesign:Grid.ColumnDefinitions>
+                <materialDesign:ColumnDefinition Width="*"/>
+                <materialDesign:ColumnDefinition Width="auto"/>
+                <materialDesign:ColumnDefinition Width="*"/>
+            </materialDesign:Grid.ColumnDefinitions>
+            <materialDesign:StackPanel Grid.Column="0">
+                <TextBlock TextAlignment="Center" Margin="5">Instructors Not Assigned to this Course</TextBlock>
+                <materialDesign:ListView x:Name="lstOutCourse" SelectionMode="Multiple">
+                    <ListView.View>
+                        <GridView>
+                            <!--<GridViewColumn Header="">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Include}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>-->
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Branch" DisplayMemberBinding="{Binding BranchName}"/>
+                            <GridViewColumn Header="Track" DisplayMemberBinding="{Binding TrackName}"/>
+                        </GridView>
+                    </ListView.View>
+                </materialDesign:ListView>
+            </materialDesign:StackPanel>
+            <materialDesign:StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10">
+                <materialDesign:Button x:Name="btnAssign" Content="Assign To Course >>" Margin="10,5" Click="BtnAssign_Click"/>
+                <materialDesign:Button x:Name="btnRemove" Content="Remove From course" Margin="10,5" Click="BtnRemove_Click"/>
+            </materialDesign:StackPanel>
+            <materialDesign:StackPanel Grid.Column="2">
+                <TextBlock TextAlignment="Center" Margin="5">Instructors Assigned to this Course</TextBlock>
+                <materialDesign:ListView x:Name="lstINCourse" SelectionMode="Multiple">
+                    <ListView.View>
+                        <GridView>
+                            <!--<GridViewColumn Header="">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Include}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>-->
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Branch" DisplayMemberBinding="{Binding BranchName}"/>
+                            <GridViewColumn Header="Track" DisplayMemberBinding="{Binding TrackName}"/>
+                        </GridView>
+                    </ListView.View>
+                </materialDesign:ListView>
+            </materialDesign:StackPanel>
+        </materialDesign:Grid>
+    </Grid>
+</UserControl>

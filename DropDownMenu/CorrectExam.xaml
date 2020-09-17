@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ExaminationProject.CorrectExam"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExaminationProject"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox >
+        <Grid Margin="20px">
+            <ComboBox x:Name="cmbCourse" HorizontalAlignment="Left" Margin="580,47,0,0" VerticalAlignment="Top" Width="120"  DisplayMemberPath="Name" SelectedValuePath="Id"/>
+            <TextBlock x:Name="correctAnswer" HorizontalAlignment="Left" Margin="20,220,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Height="90" Width="320"/>
+            <TextBlock HorizontalAlignment="Left" Margin="450,220,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="90" Width="290"/>
+            <Label Content="correct Answer" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" Width="105"/>
+            <Label Content="Student Answer" HorizontalAlignment="Left" Margin="595,175,0,0" VerticalAlignment="Top" Width="105"/>
+            <Button Content="submit" HorizontalAlignment="Left" Margin="230,343,0,0" VerticalAlignment="Top" Width="110" Click="Button_Click"/>
+            <Button Content="Next" HorizontalAlignment="Left" Margin="435,343,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button Content="Prevoius" HorizontalAlignment="Left" Margin="630,343,0,0" VerticalAlignment="Top" Width="110"/>
+            <TextBox HorizontalAlignment="Left" Height="32" Margin="40,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="125"/>
+            <TextBox HorizontalAlignment="Left" Height="66" Margin="40,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="385"/>
+            <Label Content="Qeustion" HorizontalAlignment="Left" Margin="40,29,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.476,0.833"/>
+        </Grid>
+    </Viewbox>
+
+</UserControl>
